@@ -1,0 +1,8 @@
+# imagenes
+*.bmp
+*.jpeg
+*.mpo
+*.png
+
+# carpetas
+*.zip
