@@ -12,12 +12,12 @@ headers = {
 # Descarga las imágenes con las etiquetas como nombres
 def download_image(image_url, image_label, download_folder, labels_dict):
     try:
-        # Hacer la solicitud de la imagen
+        # Solicitud
         response = requests.get(image_url, headers=headers, stream=True)
         response.raise_for_status()
         img = Image.open(BytesIO(response.content))
 
-        # Crear el nombre del archivo basándose en la etiqueta
+        # Crea el nombre del archivo según su etiqueta
         img_extension = img.format.lower()
         file_name = f"{image_label}_{labels_dict[image_label]}.{img_extension}"
         file_path = os.path.join(download_folder, file_name)
@@ -30,10 +30,9 @@ def download_image(image_url, image_label, download_folder, labels_dict):
     except Exception as e:
         print(f"Error descargando la imagen desde {image_url}: {e}")
 
-
-# Lectura de la lista de url
+# Lectura de la lista de clases seleccionadas
 labels = dict()
-with open("list_selected_labels (full_names).csv") as file:
+with open("list_selected_classes (full_names).txt") as file:
     lines = file.readlines()
     for line in lines:
         label = line.strip()
@@ -46,12 +45,12 @@ with open("list_selected_labels (full_names).csv") as file:
 current_dir = os.path.dirname(os.path.abspath(__file__))
 download_dir = os.path.join(current_dir, "images")
 
+# Crea la carpeta destino
 if not os.path.exists(download_dir):
     os.makedirs(download_dir)
 
-
 # Guarda las imágenes
-with open("trash/list_filtered_urls173.csv") as file:
+with open("filtered_url_list.csv") as file:
     lines = file.readlines()
     for line in lines:
         url, label = line.strip().split(",")

@@ -5,6 +5,8 @@
       <excludeFolder url="file://$MODULE_DIR$/images" />
       <excludeFolder url="file://$MODULE_DIR$/images_processed" />
       <excludeFolder url="file://$MODULE_DIR$/images_unused" />
+      <excludeFolder url="file://$MODULE_DIR$/images_samples" />
+      <excludeFolder url="file://$MODULE_DIR$/images_png" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.10 (Clasificador)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

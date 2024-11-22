@@ -2,26 +2,22 @@ import cv2
 import numpy as np
 
 # Tamaño de procesamiento
-SIZE = (256, 256)
-# Tamaño de salida
-OUTPUT_SIZE = (128, 128)
+PROCESSING_SIZE = (256, 256)
+# Tamaño de entrada del modelo a usar
+FINAL_SIZE = (96, 96)
 # Centro de la imagen
-CENTER_X, CENTER_Y = SIZE[0] // 2, SIZE[1] // 2
+CENTER_X, CENTER_Y = PROCESSING_SIZE[0] // 2, PROCESSING_SIZE[1] // 2
 # Límites usados en el filtro de Canny
 CANNY_THRESHOLD_1 = 100
 CANNY_THRESHOLD_2 = 75
 # Intensidad del desenfoque gaussiano
-GAUSSIAN_BLUR_KERNEL_SIZE = 5
-# Límite de la anchura de las aristas (Cero para anchura máxima)
-EDGE_THRESHOLD = 0
-# Valor positivo de la máscara
-MARKER = 1
+GAUSSIAN_BLUR_KERNEL_SIZE = (3, 3)
 # Criterio de conexidad
 CONNECTIVITY_DIAGONAL = 8
 CONNECTIVITY_SIMPLE = 4
 # Eliminación de agujeros
-AREA_THRESHOLD_SUP = (SIZE[0] * SIZE[1]) // 3
-AREA_THRESHOLD_INF = (SIZE[0] * SIZE[1]) // 32
+AREA_THRESHOLD_SUP = (PROCESSING_SIZE[0] * PROCESSING_SIZE[1]) // 3
+AREA_THRESHOLD_INF = (PROCESSING_SIZE[0] * PROCESSING_SIZE[1]) // 32
 # Varianza
 VARIANCE_THRESHOLD = 0.01
 
@@ -48,12 +44,6 @@ def resize(image, size):
 def canny_filter(image, threshold1, threshold2):
     image = cv2.cvtColor(np.float32(image), cv2.COLOR_BGR2RGB)
     return cv2.Canny(image=cv2.convertScaleAbs(image), threshold1=threshold1, threshold2=threshold2)
-
-
-# Engrosa las aristas detectadas
-def thinner_edges(image, kernel_size, threshold, marker):
-    image = cv2.GaussianBlur(np.float32(image), (kernel_size, kernel_size), 0)
-    return np.where(image > threshold, marker, 0)
 
 
 # Rellena el contorno encontrado en la imagen
@@ -108,11 +98,11 @@ def fill_holes(image, foreground, connectivity, area_threshold, variance_thresho
 
 # Flujo de procesamiento
 def process_image(image):
-    resized_image = resize(image, SIZE)
-    edges = canny_filter(resized_image, CANNY_THRESHOLD_1, CANNY_THRESHOLD_2)
-    blur_edges = cv2.GaussianBlur(np.float32(edges), (GAUSSIAN_BLUR_KERNEL_SIZE, GAUSSIAN_BLUR_KERNEL_SIZE), 0)
-    filled_mask = fill_contours(blur_edges)
-    filled_mask = fill_holes(resized_image, filled_mask, CONNECTIVITY_DIAGONAL, AREA_THRESHOLD_SUP, VARIANCE_THRESHOLD)
-    filled_mask = remove_components(filled_mask, CONNECTIVITY_SIMPLE, AREA_THRESHOLD_INF)
-    rounded = np.round(resized_image * filled_mask[:, :, np.newaxis]).astype(np.uint8)
-    return cv2.resize(rounded, OUTPUT_SIZE, interpolation=cv2.INTER_LANCZOS4)
+    image_resized = resize(image, PROCESSING_SIZE)
+    image_edges = canny_filter(image_resized, CANNY_THRESHOLD_1, CANNY_THRESHOLD_2)
+    blurred_edges = cv2.GaussianBlur(np.float32(image_edges), GAUSSIAN_BLUR_KERNEL_SIZE, 0)
+    image_interior = fill_contours(blurred_edges)
+    image_filled = fill_holes(image_resized, image_interior, CONNECTIVITY_DIAGONAL, AREA_THRESHOLD_SUP, VARIANCE_THRESHOLD)
+    image_cleaned = remove_components(image_filled, CONNECTIVITY_SIMPLE, AREA_THRESHOLD_INF)
+    image_processed = np.round(image_resized * image_cleaned[:, :, np.newaxis]).astype(np.uint8)
+    return cv2.resize(image_processed, FINAL_SIZE, interpolation=cv2.INTER_LANCZOS4)
