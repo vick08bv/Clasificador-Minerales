@@ -26,4 +26,8 @@ dentro de MinDat y en la comunidad geológica en general.
 - Entrenamiento final del modelo ajustado: [cnn_model.py](cnn_model.py)
 
 ## Directorios:
-
+- images: Imágenes recién descargadas.
+- images_samples: Muestra para visualización.
+- images_png: Residuales con extensiones como png, bmp y mpo.
+- images_unused: Imágenes que no se usaron durante el entrenamiento del modelo.
+- images_processed: Directorio de las imágenes procesadas y usadas por el modelo.
