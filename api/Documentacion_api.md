@@ -81,7 +81,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"image": "base64_string"}'
 **Response:**
 ```json
 {
-  La categoria es: "Quarz"
+  "Quarz"
 }
 ```
 
