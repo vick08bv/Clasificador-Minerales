@@ -13,6 +13,22 @@ es capaz de clasificar diez categorías,
 previamente escogidas por su relevancia 
 dentro de MinDat y en la comunidad geológica en general.
 
+## Descripción de interfaz del usuario:
+Se ha usado FastApi para la creación de una Api que funcione como interfaz del usuario 
+permitiendo que este suba una imagen en base64 y mediante el modelo realizado haga una 
+predicción en la clasificación de minerales.
+Tomando en cuenta la siguiente clasificación:
+- Copper
+- Pyromorphite
+- Quartz (Var: Amethyst)
+- Malachite
+- Azurite
+- Wulfenite
+- Pyrite
+- Quartz
+- Fluorite
+- Calcite
+
 ## Flujo de trabajo:
 - Visualización del conjunto de datos: [viewing_data.ipynb](viewing_data.ipynb)
 - Selección de categorías a descargar: [filter_url_list.py](filter_url_list.py)
