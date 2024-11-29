@@ -39,7 +39,8 @@ cd Clasificador-Minerales
 ```
 ## Carga del modelo
 
-El archivo de modelo necesario para ejecutar la API ya esta cargado en GitHub. (/api/models/trained_model.keras si usas Docker).
+El archivo del modelo es necesario para ejecutar la API.
+Este ya esta cargado en GitHub, de modo que debio clonarse. (/api/models/trained_model.keras si usas Docker).
  
 ## Uso de Docker
 
