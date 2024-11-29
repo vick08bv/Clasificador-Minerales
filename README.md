@@ -39,10 +39,10 @@ Hemos tomando en cuenta la siguiente clasificación de minerales:
 - Entrenamiento y comparación de modelos: [training_models.ipynb](training_models.ipynb)
 - Ajuste de hiperparámetros: [tuning_parameters.ipynb](tuning_parameters.ipynb)
 - Entrenamiento final del modelo ajustado: [cnn_model.py](cnn_model.py)
-- Modelo entrenado: [trained_model.keras](trained_model.keras)
-- Predicción del modelo que usa la API: [predict.py](predict.py)
-- Procesamiento de imágenes que recibirá la API: [process_images_api.py](process_images_api.py)
-- Código principal para el funcionamiento de la API: [main.py](main.py)
+- Modelo entrenado: [trained_model.keras](api/models/trained_model.keras)
+- Predicción del modelo que usa la API: [predict.py](api/predict.py)
+- Procesamiento de imágenes que recibirá la API: [process_images_api.py](api/utils/process_images_api.py)
+- Código principal para el funcionamiento de la API: [main.py](api/main.py)
 - Dockerfile para la API en contenedor: [Dockerfile](Dockerfile)
 
 ## Directorios:
