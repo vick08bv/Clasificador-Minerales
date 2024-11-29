@@ -38,13 +38,90 @@ de red neuronal convolucional presenta otro reto debido al nivel de abstracción
 imágenes y el costo computacional de los entrenamientos.
 
 ## Fuentes de información y procedimientos aplicados
+El conjunto de datos obtenidos del [repositorio](https://github.com/loliverhennigh/MinDat-Mineral-Image-Dataset.git) de Oliver Hennigh pertenecen a diferentes clasificaciones de minerales. Este repositorio alberga un archivo .csv, el cual guarda información sobre la imagen y su clasificación.
+Así esta información se ocupo después para comparar las predicciones con los datos reales.
 
-### Construcción del modelo
-Se utiliza el framework de tensorflow y keras para construir un modelo de red neuronal secuencial.
-La red neuronal consta de cuatro capas de convolución y una capa densa. 
-Después de la elección del modelo se hace el ajuste de hiperparámetros con keras.
+Los tres modelos presentados tienen una arquitectura similar, sin embargo hemos resaltado los puntos más importantes que los diferencian entre si.
 
-### Resultados modelo
+# Modelo 1
+
+### Construcción del Modelo 1
+La red que construiremos se basa en una arquitectura de **red neuronal convolucional (CNN)**, una técnica ideal para problemas de visión por computadora. Las CNNs son capaces de extraer características clave de las imágenes, como texturas, bordes y patrones complejos. 
+
+La red que construiremos se basa en una arquitectura de **red neuronal convolucional (CNN)**.
+Esta red neuronal cuenta con 5 capas convulocionales y 2 capas densas.
+Como este modelo tiene dos capas densas, permite realizar transformaciones más complejas en los datos.
+Además se utiliza un tamaño de kernel constante en todas las capas convolucionales.
+En general este modelo podría obtener mejores resultados en tareas complejas, pero requiere de un ajuste cuidadoso de los hiperparámetros para evitar el sobreajuste.
+## Arquitectura
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ conv2d (Conv2D)                      │ (None, 96, 96, 32)          │             896 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization                  │ (None, 96, 96, 32)          │             128 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ max_pooling2d (MaxPooling2D)         │ (None, 48, 48, 32)          │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ conv2d_1 (Conv2D)                    │ (None, 48, 48, 64)          │          18,496 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_1                │ (None, 48, 48, 64)          │             256 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ max_pooling2d_1 (MaxPooling2D)       │ (None, 24, 24, 64)          │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ conv2d_2 (Conv2D)                    │ (None, 24, 24, 128)         │          73,856 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_2                │ (None, 24, 24, 128)         │             512 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ max_pooling2d_2 (MaxPooling2D)       │ (None, 12, 12, 128)         │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ conv2d_3 (Conv2D)                    │ (None, 12, 12, 256)         │         295,168 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_3                │ (None, 12, 12, 256)         │           1,024 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ max_pooling2d_3 (MaxPooling2D)       │ (None, 6, 6, 256)           │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ conv2d_4 (Conv2D)                    │ (None, 6, 6, 512)           │       1,180,160 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_4                │ (None, 6, 6, 512)           │           2,048 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ max_pooling2d_4 (MaxPooling2D)       │ (None, 3, 3, 512)           │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ global_average_pooling2d             │ (None, 512)                 │               0 │
+│ (GlobalAveragePooling2D)             │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense (Dense)                        │ (None, 256)                 │         131,328 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_5                │ (None, 256)                 │           1,024 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_1 (Dense)                      │ (None, 128)                 │          32,896 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_6                │ (None, 128)                 │             512 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_2 (Dense)                      │ (None, 10)                  │           1,290 │
+└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+
+#### **Totales**
+
+Total params: 1,739,594 (6.64 MB)
+Trainable params: 1,736,842 (6.63 MB)
+Non-trainable params: 2,752 (10.75 KB)
+
+### Funcionamiento del Modelo 1
+1. Las imágenes se pasan a través de cinco capas convolucionales para extraer características espaciales.
+2. Las capas de MaxPooling reducen las dimensiones de las características.
+3. Las dos capas densas realizan la clasificación basada en las características extraídas.
+4. Capa de salida. Una sola neurona con una función de activación produce una probabilidad entre 0 y 1, desplegando la probabilidad más alta de que la imagen pertenezca a alguna de la categorias.
+
+### Resultados del Modelo 1
+
 Se prueban tres modelos de redes convolucionales, obteniendo resultados similares
 (superiores al 70% de precisión en el conjunto de entrenamiento) 
 después de un entrenamiento moderado a 15 épocas. Se ha elegido el mejor de estos 
