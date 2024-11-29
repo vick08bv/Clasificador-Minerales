@@ -1,5 +1,5 @@
 # Clasificador-Minerales
-Clasificación de imágenes de minerales mediante una red neuronal convolucional usando el framework de tensorflow-keras.
+Este proyecto esta enfocado en la creación de un Clasificador de imágenes de minerales mediante una red neuronal convolucional usando el framework de tensorflow-keras. Además de la creación de una API mediante FastApi que nos permitirá interactuar con el modelo de una forma más sencilla.
 
 ## Origen de los datos:
 Las imágenes se obtienen del sitio web de [MinDat](https://mindat.org) 
@@ -13,11 +13,10 @@ es capaz de clasificar diez categorías,
 previamente escogidas por su relevancia 
 dentro de MinDat y en la comunidad geológica en general.
 
-## Descripción de interfaz del usuario:
-Se ha usado FastApi para la creación de una Api que funcione como interfaz del usuario 
-permitiendo que este suba una imagen en base64 y mediante el modelo realizado haga una 
-predicción en la clasificación de minerales.
-Tomando en cuenta la siguiente clasificación:
+## Descripción de la API:
+Se ha usado FastApi para la creación de una API que será la interfaz del usuario 
+permitiendo que se suba una imagen en base64 y nos devuelva la predicción de la clasificación del mineral.
+Hemos tomando en cuenta la siguiente clasificación de minerales:
 - Copper
 - Pyromorphite
 - Quartz (Var: Amethyst)
@@ -40,6 +39,11 @@ Tomando en cuenta la siguiente clasificación:
 - Entrenamiento y comparación de modelos: [training_models.ipynb](training_models.ipynb)
 - Ajuste de hiperparámetros: [tuning_parameters.ipynb](tuning_parameters.ipynb)
 - Entrenamiento final del modelo ajustado: [cnn_model.py](cnn_model.py)
+- Modelo entrenado: [trained_model.keras](trained_model.keras)
+- Predicción del modelo que usa la API: [predict.py](predict.py)
+- Procesamiento de imágenes que recibirá la API: [process_images_api.py](process_images_api.py)
+- Código principal para el funcionamiento de la API: [main.py](main.py)
+- Dockerfile para la API en contenedor: [Dockerfile](Dockerfile)
 
 ## Directorios:
 - images: Imágenes recién descargadas.
