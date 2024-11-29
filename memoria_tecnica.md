@@ -47,14 +47,9 @@ Los tres modelos presentados tienen una arquitectura similar, sin embargo hemos 
 
 # Modelo 1
 
-### Construcción del Modelo 1
+### Construcción del Modelo 
 La red que construiremos se basa en una arquitectura de **red neuronal convolucional (CNN)**, una técnica ideal para problemas de visión por computadora. Las CNNs son capaces de extraer características clave de las imágenes, como texturas, bordes y patrones complejos. 
 
-La red que construiremos se basa en una arquitectura de **red neuronal convolucional (CNN)**.
-Esta red neuronal cuenta con 5 capas convulocionales y 2 capas densas.
-Como este modelo tiene dos capas densas, permite realizar transformaciones más complejas en los datos.
-Además se utiliza un tamaño de kernel constante en todas las capas convolucionales.
-En general este modelo podría obtener mejores resultados en tareas complejas, pero requiere de un ajuste cuidadoso de los hiperparámetros para evitar el sobreajuste.
 ## Arquitectura
 
 ![Tabla 1](imagenes/modelo1.jpg)
@@ -64,18 +59,23 @@ En general este modelo podría obtener mejores resultados en tareas complejas, p
 - Trainable params: 1,736,842 (6.63 MB)
 - Non-trainable params: 2,752 (10.75 KB)
 
-### Funcionamiento del Modelo 1
+### Funcionamiento del Modelo 
 1. Las imágenes se pasan a través de cinco capas convolucionales para extraer características espaciales.
 2. Las capas de MaxPooling reducen las dimensiones de las características.
 3. Las dos capas densas realizan la clasificación basada en las características extraídas.
 4. Capa de salida. Una sola neurona con una función de activación produce una probabilidad entre 0 y 1, desplegando la probabilidad más alta de que la imagen pertenezca a alguna de la categorias.
 
-### Resultados del Modelo 1
+### Resultados del Modelo 
 
-Se prueban tres modelos de redes convolucionales, obteniendo resultados similares
-(superiores al 70% de precisión en el conjunto de entrenamiento) 
-después de un entrenamiento moderado a 15 épocas. Se ha elegido el mejor de estos 
-tres modelos para hacer el ajuste de hiperparámetros.
+![graficas](imagenes/graficas.jpg)
+
+## Precisión (Accuracy):
+- Entrenamiento: La precisión alcanza valores cercanos a 0.7 rápidamente, indicando un ajuste bueno a los datos de entrenamiento.
+- Validación: La precisión de validación es alta (~0.60-0.64), con ligeras oscilaciones en algunas épocas.
+
+## Pérdida (Loss):
+- Entrenamiento: La pérdida disminuye consistentemente y se estabiliza en valores bajos (~0.5), lo que refleja que el modelo está aprendiendo adecuadamente.
+- Validación: La pérdida de validación es baja.
 
 ### Pruebas sobre el modelo
 Después de elegir el modelo final, se hace el ajuste de hiperparámetros de 
@@ -83,13 +83,101 @@ regularización en las últimas dos capas de convolución y dropout sólo en la
 capa densa, para evitar el sobreajuste de la red.
 
 ### Conclusiones
-Después de añadir técnicas de regularización se nota una mejora en la precisión 
-obtenida en el conjunto de validación, sin embargo, se ralentiza el entrenamiento de la red, 
+
+En general este modelo podría obtuvo buenos resultados en tareas complejas, pero requiere de un ajuste cuidadoso de los hiperparámetros para evitar el sobreajuste.
+Debido a que tanto en el entrenamiento como en la validación la precisión se aproxima a 0.7.
+ 
+# Modelo 2
+
+### Construcción del Modelo 
+La red que construiremos se basa en una arquitectura de **red neuronal convolucional (CNN)**, una técnica ideal para problemas de visión por computadora. Las CNNs son capaces de extraer características clave de las imágenes, como texturas, bordes y patrones complejos. 
+
+## Arquitectura
+
+![Tabla 1](imagenes/modelo2.jpg)
+
+**Totales**
+- Total params: 529,098 (2.02 MB)
+- Trainable params: 527,114 (2.01 MB)
+- Non-trainable params: 1,984 (7.75 KB)
+
+### Funcionamiento del Modelo 
+1. Las imágenes se pasan a través de cuatro capas convolucionales para extraer características espaciales.
+2. Las capas de MaxPooling reducen las dimensiones de las características.
+3. Una capa densa que realiza la clasificación basada en las características extraídas.
+4. Capa de salida. Una sola neurona con una función de activación produce una probabilidad entre 0 y 1, desplegando la probabilidad más alta de que la imagen pertenezca a alguna de la categorias.
+
+### Resultados del Modelo 
+
+![graficas](imagenes/graficas.jpg)
+
+## Precisión (Accuracy):
+- Entrenamiento: La precisión alcanza valores cercanos a 0.68 rápidamente, indicando un ajuste bueno a los datos de entrenamiento, pero menor al modelo 1.
+- Validación: La precisión de validación es alta (~0.60-0.62), con ligeras oscilaciones en algunas épocas.
+
+## Pérdida (Loss):
+- Entrenamiento: La pérdida disminuye consistentemente y se estabiliza en valores bajos (~0.5), lo que refleja que el modelo está aprendiendo adecuadamente.
+- Validación: La pérdida de validación es baja.
+
+### Pruebas sobre el modelo
+Después de elegir el modelo final, se hace el ajuste de hiperparámetros de 
+regularización en las últimas dos capas de convolución y dropout sólo en la 
+capa densa, para evitar el sobreajuste de la red.
+
+### Conclusiones
+
+En general este modelo obtuvo buenos resultados en tareas complejas. Con una sola capa densa, este modelo es más simple y puede ser menos propenso a sobreajustarse, pero podría tener una capacidad de aprendizaje más limitada.
+
+# Modelo 3
+
+### Construcción del Modelo 
+La red que construiremos se basa en una arquitectura de **red neuronal convolucional (CNN)**, una técnica ideal para problemas de visión por computadora. Las CNNs son capaces de extraer características clave de las imágenes, como texturas, bordes y patrones complejos. 
+
+## Arquitectura
+
+![Tabla 1](imagenes/modelo3.jpg)
+
+**Totales**
+- Total params: 529,098 (2.02 MB)
+- Trainable params: 527,114 (2.01 MB)
+- Non-trainable params: 1,984 (7.75 KB)
+
+### Funcionamiento del Modelo 
+1. Las imágenes se pasan a través de cuatro capas convolucionales para extraer características espaciales.
+2. Las capas de MaxPooling reducen las dimensiones de las características.
+3. Una capa densa que realiza la clasificación basada en las características extraídas.
+4. Capa de salida. Una sola neurona con una función de activación produce una probabilidad entre 0 y 1, desplegando la probabilidad más alta de que la imagen pertenezca a alguna de la categorias.
+
+### Resultados del Modelo 
+
+![graficas](imagenes/graficas.jpg)
+
+## Precisión (Accuracy):
+- Entrenamiento: La precisión alcanza valores cercanos a 0.72 rápidamente, indicando un ajuste bueno a los datos de entrenamiento, y mejor al modelo 1 y 2.
+- Validación: La precisión de validación es alta (~0.60-0.62), con ligeras oscilaciones en algunas épocas.
+
+## Pérdida (Loss):
+- Entrenamiento: La pérdida disminuye consistentemente y se estabiliza en valores bajos (~0.5), lo que refleja que el modelo está aprendiendo adecuadamente.
+- Validación: La pérdida de validación es baja.
+
+### Pruebas sobre el modelo
+Después de elegir el modelo final, se hace el ajuste de hiperparámetros de 
+regularización en las últimas dos capas de convolución y dropout sólo en la 
+capa densa, para evitar el sobreajuste de la red.
+
+### Conclusiones
+
+En general este modelo fue el que obtuvo mejores resultados resultados. Con una sola capa densa, la variación en los tamaños de kernel y el mayor número de filtros inicial le permiten capturar mejores características, pero requiere de más datos de entrenamiento y posiblemente de técnicas de regularización.
+
+## Conclusiones generales
+Después de la comparativa entre modelos se eligió el modelo 3 y al añadir técnicas de regularización se nota una mejora en la precisión 
+obtenida en el conjunto de validación. Sin embargo, se ralentiza el entrenamiento de la red, 
 por lo que hay aún una ventana de mejora en cuanto a la precisión que es posible alcanzar, 
 pues se ha alcanzado un 73% de precisión después del entrenamiento final, cuando 
 los primeros modelos sobreajustados alcanzaron un 84% de precisión.
 
-## Conclusiones generales
+![imagen](imagenes/modelo_seleccionado.jpg)
+
 A pesar de que existen miles de minerales en la naturaleza y varios métodos para 
 su identificación, la clasificación de estos sólamente por métodos visuales presenta 
 una serie de dificultades que aumentan considerablemente conforme se desea trabajar 
