@@ -71,7 +71,7 @@ docker rm id_contenedor
 **Descripción:** Clasifica una imagen para decir que tipo de mineral es.
 
 **Request Body:**
-- `image` (string): Imagen codificada en Base64.
+- `image_base64` (string): Imagen codificada en Base64.
 
 **Ejemplo:**
 ```bash
@@ -81,7 +81,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"image": "base64_string"}'
 **Response:**
 ```json
 {
-  "Quarz"
+  La categoria es: "Quarz"
 }
 ```
 
@@ -89,8 +89,8 @@ curl -X POST -H "Content-Type: application/json" -d '{"image": "base64_string"}'
 
 ## Manejo de Errores
 La API devuelve respuestas HTTP con códigos de error estándar:
-- **400**: Error en la solicitud (p. ej., imagen inválida o no soportada).
-- **404**: Endpoint no encontrado.
+- **400**: Error de valor (p. ej., imagen inválida o no soportada).
+- **404**: Imagen no proporcionada o inválida.
 - **500**: Error interno del servidor.
 
 ## Observaciones
