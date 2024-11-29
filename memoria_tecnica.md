@@ -64,6 +64,8 @@ La red que construiremos se basa en una arquitectura de **red neuronal convoluci
 2. Las capas de MaxPooling reducen las dimensiones de las características.
 3. Las dos capas densas realizan la clasificación basada en las características extraídas.
 4. Capa de salida. Una sola neurona con una función de activación produce una probabilidad entre 0 y 1, desplegando la probabilidad más alta de que la imagen pertenezca a alguna de la categorias.
+A continuación podemos visualizar como se ve nuestro modelo:
+![graficas](imagenes/visualizacion.jpg)
 
 ## Resultados del Modelo 
 
@@ -107,6 +109,9 @@ La red que construiremos se basa en una arquitectura de **red neuronal convoluci
 3. Una capa densa que realiza la clasificación basada en las características extraídas.
 4. Capa de salida. Una sola neurona con una función de activación produce una probabilidad entre 0 y 1, desplegando la probabilidad más alta de que la imagen pertenezca a alguna de la categorias.
 
+A continuación podemos visualizar como se ve nuestro modelo:
+![graficas](imagenes/visualizacion2.jpg)
+
 ## Resultados del Modelo 
 
 ![graficas](imagenes/graficas.jpg)
@@ -147,6 +152,9 @@ La red que construiremos se basa en una arquitectura de **red neuronal convoluci
 2. Las capas de MaxPooling reducen las dimensiones de las características.
 3. Una capa densa que realiza la clasificación basada en las características extraídas.
 4. Capa de salida. Una sola neurona con una función de activación produce una probabilidad entre 0 y 1, desplegando la probabilidad más alta de que la imagen pertenezca a alguna de la categorias.
+
+A continuación podemos visualizar como se ve nuestro modelo:
+![graficas](imagenes/visualizacion3.jpg)
 
 ## Resultados del Modelo 
 
