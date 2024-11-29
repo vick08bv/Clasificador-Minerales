@@ -40,7 +40,7 @@ imágenes y el costo computacional de los entrenamientos.
 ## Fuentes de información y procedimientos aplicados
 El conjunto de datos obtenidos del [repositorio](https://github.com/loliverhennigh/MinDat-Mineral-Image-Dataset.git) de Oliver Hennigh pertenecen a diferentes clasificaciones de minerales. Este repositorio alberga un archivo .csv, el cual guarda información sobre la imagen y su clasificación.
 Así esta información se ocupo después para comparar las predicciones con los datos reales.
-
+![Imagen de un cuarzo extraida de sitio MinDat](imagenes/modelo1.jpg)
 Los tres modelos presentados tienen una arquitectura similar, sin embargo hemos resaltado los puntos más importantes que los diferencian entre si.
 
 # Modelo 1
@@ -55,56 +55,7 @@ Además se utiliza un tamaño de kernel constante en todas las capas convolucion
 En general este modelo podría obtener mejores resultados en tareas complejas, pero requiere de un ajuste cuidadoso de los hiperparámetros para evitar el sobreajuste.
 ## Arquitectura
 
-| **Layer (type)**                     | **Output Shape**            |     **Param #** |
-|--------------------------------------------------------------------------------------|
-│ `conv2d (Conv2D)`                    │ (None, 96, 96, 32)          |             896 │
-│ `batch_normalization (BatchNormalization)` │ (None, 96, 96, 32)          │             128 │
-
-│ max_pooling2d (MaxPooling2D)         │ (None, 48, 48, 32)          │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ conv2d_1 (Conv2D)                    │ (None, 48, 48, 64)          │          18,496 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ batch_normalization_1                │ (None, 48, 48, 64)          │             256 │
-│ (BatchNormalization)                 │                             │                 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ max_pooling2d_1 (MaxPooling2D)       │ (None, 24, 24, 64)          │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ conv2d_2 (Conv2D)                    │ (None, 24, 24, 128)         │          73,856 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ batch_normalization_2                │ (None, 24, 24, 128)         │             512 │
-│ (BatchNormalization)                 │                             │                 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ max_pooling2d_2 (MaxPooling2D)       │ (None, 12, 12, 128)         │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ conv2d_3 (Conv2D)                    │ (None, 12, 12, 256)         │         295,168 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ batch_normalization_3                │ (None, 12, 12, 256)         │           1,024 │
-│ (BatchNormalization)                 │                             │                 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ max_pooling2d_3 (MaxPooling2D)       │ (None, 6, 6, 256)           │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ conv2d_4 (Conv2D)                    │ (None, 6, 6, 512)           │       1,180,160 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ batch_normalization_4                │ (None, 6, 6, 512)           │           2,048 │
-│ (BatchNormalization)                 │                             │                 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ max_pooling2d_4 (MaxPooling2D)       │ (None, 3, 3, 512)           │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ global_average_pooling2d             │ (None, 512)                 │               0 │
-│ (GlobalAveragePooling2D)             │                             │                 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dense (Dense)                        │ (None, 256)                 │         131,328 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ batch_normalization_5                │ (None, 256)                 │           1,024 │
-│ (BatchNormalization)                 │                             │                 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dense_1 (Dense)                      │ (None, 128)                 │          32,896 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ batch_normalization_6                │ (None, 128)                 │             512 │
-│ (BatchNormalization)                 │                             │                 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dense_2 (Dense)                      │ (None, 10)                  │           1,290 │
-└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+![Tabla 1](imagenes/modelo1.jpg)
 
 #### **Totales**
 
