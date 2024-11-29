@@ -18,16 +18,16 @@ Se ha usado FastApi para la creación de una Api que funcione como interfaz del 
 permitiendo que este suba una imagen en base64 y mediante el modelo realizado haga una 
 predicción en la clasificación de minerales.
 Tomando en cuenta la siguiente clasificación:
-Copper
-Pyromorphite
-Quartz (Var: Amethyst)
-Malachite
-Azurite
-Wulfenite
-Pyrite
-Quartz
-Fluorite
-Calcite
+- Copper
+- Pyromorphite
+- Quartz (Var: Amethyst)
+- Malachite
+- Azurite
+- Wulfenite
+- Pyrite
+- Quartz
+- Fluorite
+- Calcite
 
 ## Flujo de trabajo:
 - Visualización del conjunto de datos: [viewing_data.ipynb](viewing_data.ipynb)
