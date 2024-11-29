@@ -8,7 +8,7 @@ Este proyecto esta enfocado en la creación de un Clasificador de imágenes de m
 
 ## Entregables:
 - [Memoria Técnica](memoria_tecnica.md)
-- [Documentación General de la API](api/utils/Documentacion_api.md)
+- [Documentación General de la API](api/Documentacion_api.md)
 
 ## Origen de los datos:
 Las imágenes se obtienen del sitio web de [MinDat](https://mindat.org) 
