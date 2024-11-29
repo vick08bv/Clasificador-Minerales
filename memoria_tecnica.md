@@ -54,14 +54,12 @@ Como este modelo tiene dos capas densas, permite realizar transformaciones más 
 Además se utiliza un tamaño de kernel constante en todas las capas convolucionales.
 En general este modelo podría obtener mejores resultados en tareas complejas, pero requiere de un ajuste cuidadoso de los hiperparámetros para evitar el sobreajuste.
 ## Arquitectura
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
-┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
-│ conv2d (Conv2D)                      │ (None, 96, 96, 32)          │             896 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ batch_normalization                  │ (None, 96, 96, 32)          │             128 │
-│ (BatchNormalization)                 │                             │                 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+
+| **Layer (type)**                     | **Output Shape**            |     **Param #** |
+|--------------------------------------------------------------------------------------|
+│ `conv2d (Conv2D)`                    │ (None, 96, 96, 32)          |             896 │
+│ `batch_normalization (BatchNormalization)` │ (None, 96, 96, 32)          │             128 │
+
 │ max_pooling2d (MaxPooling2D)         │ (None, 48, 48, 32)          │               0 │
 ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
 │ conv2d_1 (Conv2D)                    │ (None, 48, 48, 64)          │          18,496 │
