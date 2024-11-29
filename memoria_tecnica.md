@@ -45,9 +45,9 @@ Así esta información se ocupo después para comparar las predicciones con los 
 
 Los tres modelos presentados tienen una arquitectura similar, sin embargo hemos resaltado los puntos más importantes que los diferencian entre si.
 
-# Modelo 1
+## Modelo 1
 
-### Construcción del Modelo 
+## Construcción del Modelo 
 La red que construiremos se basa en una arquitectura de **red neuronal convolucional (CNN)**, una técnica ideal para problemas de visión por computadora. Las CNNs son capaces de extraer características clave de las imágenes, como texturas, bordes y patrones complejos. 
 
 ## Arquitectura
@@ -59,30 +59,30 @@ La red que construiremos se basa en una arquitectura de **red neuronal convoluci
 - Trainable params: 1,736,842 (6.63 MB)
 - Non-trainable params: 2,752 (10.75 KB)
 
-### Funcionamiento del Modelo 
+## Funcionamiento del Modelo 
 1. Las imágenes se pasan a través de cinco capas convolucionales para extraer características espaciales.
 2. Las capas de MaxPooling reducen las dimensiones de las características.
 3. Las dos capas densas realizan la clasificación basada en las características extraídas.
 4. Capa de salida. Una sola neurona con una función de activación produce una probabilidad entre 0 y 1, desplegando la probabilidad más alta de que la imagen pertenezca a alguna de la categorias.
 
-### Resultados del Modelo 
+## Resultados del Modelo 
 
 ![graficas](imagenes/graficas.jpg)
 
-## Precisión (Accuracy):
+### Precisión (Accuracy):
 - Entrenamiento: La precisión alcanza valores cercanos a 0.7 rápidamente, indicando un ajuste bueno a los datos de entrenamiento.
 - Validación: La precisión de validación es alta (~0.60-0.64), con ligeras oscilaciones en algunas épocas.
 
-## Pérdida (Loss):
+### Pérdida (Loss):
 - Entrenamiento: La pérdida disminuye consistentemente y se estabiliza en valores bajos (~0.5), lo que refleja que el modelo está aprendiendo adecuadamente.
 - Validación: La pérdida de validación es baja.
 
-### Pruebas sobre el modelo
+## Pruebas sobre el modelo
 Después de elegir el modelo final, se hace el ajuste de hiperparámetros de 
 regularización en las últimas dos capas de convolución y dropout sólo en la 
 capa densa, para evitar el sobreajuste de la red.
 
-### Conclusiones
+## Conclusiones
 
 En general este modelo podría obtuvo buenos resultados en tareas complejas, pero requiere de un ajuste cuidadoso de los hiperparámetros para evitar el sobreajuste.
 Debido a que tanto en el entrenamiento como en la validación la precisión se aproxima a 0.7.
