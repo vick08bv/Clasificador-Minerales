@@ -5,22 +5,27 @@ import base64
 import numpy as np
 from typing import Any
 
+# Cargamos la dirección donde se encuentra el modelo
 MODEL_PATH = "api/models/trained_model.keras"
 
+# Cargamos las categorias
 LABELS = {
-    0: "Amethyst",
-    1: "Azurite",
-    2: "Calcite",
-    3: "Copper",
-    4: "Fluorite",
-    5: "Malachite",
+    0: "Copper",
+    1: "Pyromorphite",
+    2: "Quartz (Var: Amethyst)",
+    3: "Malachite",
+    4: "Azurite",
+    5: "Wulfenite",
     6: "Pyrite",
-    7: "Pyromorphite",
-    8: "Quartz",
-    10: "Wulfenite"
+    7: "Quartz",
+    8: "Fluorite",
+    9: "Calcite"
 }
 
+# Cargamos el modelo
 model = load_model(MODEL_PATH)
+
+# imagen procesada para base64
 
 def preprocess_base54_image(base64_image: str) -> Any:
     decoded_image = base64.b64decode(base64_image)
@@ -28,6 +33,8 @@ def preprocess_base54_image(base64_image: str) -> Any:
     image = cv2.imdecode(np_image,cv2.IMREAD_COLOR)
     return image
 
+# Procesamos la imagen para que tenga los parametros que se usaron en el
+# modelo
 def predict(base64_image: str) -> str:
     image = preprocess_base54_image(base64_image)
     processed_image = process_images_api(image)
