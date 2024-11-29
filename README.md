@@ -7,7 +7,8 @@
 Este proyecto esta enfocado en la creación de un Clasificador de imágenes de minerales mediante una red neuronal convolucional usando el framework de tensorflow-keras. Además de la creación de una API mediante FastApi que nos permitirá interactuar con el modelo de una forma más sencilla.
 
 ## Entregables:
-- Memoria técnica [memoria_tecnica.md](memoria_tecnica.md)
+- [Memoria Técnica](memoria_tecnica.md)
+- [Documentación General de la API](api/utils/Documentacion_api.md)
 
 ## Origen de los datos:
 Las imágenes se obtienen del sitio web de [MinDat](https://mindat.org) 
