@@ -37,10 +37,6 @@ Clona el repositorio del proyecto:
 git clone https://github.com/vick08bv/Clasificador-Minerales.git
 cd Clasificador-Minerales
 ```
-## Carga del modelo
-
-El archivo del modelo es necesario para ejecutar la API.
-Este ya esta cargado en GitHub, de modo que debio clonarse. (/api/models/trained_model.keras si usas Docker).
  
 ## Uso de Docker
 
