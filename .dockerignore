@@ -1,0 +1,18 @@
+# Ignorar directorios de entrenamiento
+__pycache__/
+.idea/
+.ipynb_checkpoints/
+keras_tuning/
+.gitignore
+*.ipynb
+*.csv
+create_subfolders.py 
+download_images.py
+filter_url_list.py
+list_selected_classes (full_names).txt
+memoria_tecnica.md
+process_images.py
+process_pipeline.py
+README.md
+remove_extra_images.py
+remove_png_images.py
