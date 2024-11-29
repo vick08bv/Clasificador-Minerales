@@ -30,7 +30,12 @@ Inspirado en ello, el objetivo es hacer un clasificador de minerales que sea cap
 mediante una red neuronal convolucional entrenada desde cero con imágenes obtenidas de MinDat.
 
 ### Introducción
-Dar una breve explicación o resumen del resultado del proyecto.
+La clasificación de minerales es una tarea compleja para la mayoria de las personas, 
+por sus características visuales únicas, pero hacer un clasificador de minerales 
+capaz de superar a expertos en la materia es bastante difícil. Después del 
+preprocesamiento para eliminar el fondo de las imágenes, la elección de una arquitectura
+de red neuronal convolucional presenta otro reto debido al nivel de abstracción de las 
+imágenes y el costo computacional de los entrenamientos.
 
 ## Fuentes de información y procedimientos aplicados
 
@@ -40,16 +45,32 @@ La red neuronal consta de cuatro capas de convolución y una capa densa.
 Después de la elección del modelo se hace el ajuste de hiperparámetros con keras.
 
 ### Resultados modelo
-Documenta los resultados obtenidos del modelo.
+Se prueban tres modelos de redes convolucionales, obteniendo resultados similares
+(superiores al 70% de precisión en el conjunto de entrenamiento) 
+después de un entrenamiento moderado a 15 épocas. Se ha elegido el mejor de estos 
+tres modelos para hacer el ajuste de hiperparámetros.
 
 ### Pruebas sobre el modelo
-Describe las pruebas realizadas sobre el modelo.
+Después de elegir el modelo final, se hace el ajuste de hiperparámetros de 
+regularización en las últimas dos capas de convolución y dropout sólo en la 
+capa densa, para evitar el sobreajuste de la red.
 
 ### Conclusiones
-Conclusiones específicas de cada modelo probado.
+Después de añadir técnicas de regularización se nota una mejora en la precisión 
+obtenida en el conjunto de validación, sin embargo, se ralentiza el entrenamiento de la red, 
+por lo que hay aún una ventana de mejora en cuanto a la precisión que es posible alcanzar, 
+pues se ha alcanzado un 73% de precisión después del entrenamiento final, cuando 
+los primeros modelos sobreajustados alcanzaron un 84% de precisión.
 
 ## Conclusiones generales
-Presenta las conclusiones globales del proyecto.
+A pesar de que existen miles de minerales en la naturaleza y varios métodos para 
+su identificación, la clasificación de estos sólamente por métodos visuales presenta 
+una serie de dificultades que aumentan considerablemente conforme se desea trabajar 
+con más categorías, gracias a las variaciones que estos objetos presentan por lo que 
+pueden ser confundidos fácilmente. Contando con más tiempo y capacidad de cómputo 
+sería posible mejorar e incluso extender el modelo, mediante la exploración de otras 
+técnicas y un ajuste más profundo de los parámetros escogidos.
+
 
 ## Anexos
 - Flujo de trabajo:
