@@ -37,9 +37,6 @@ Clona el repositorio del proyecto:
 git clone https://github.com/vick08bv/Clasificador-Minerales.git
 cd Clasificador-Minerales
 ```
-## Carga del modelo
-
-El archivo de modelo necesario para ejecutar la API ya esta cargado en GitHub. (/api/models/trained_model.keras si usas Docker).
  
 ## Uso de Docker
 
@@ -74,11 +71,11 @@ docker rm id_contenedor
 **Descripción:** Clasifica una imagen para decir que tipo de mineral es.
 
 **Request Body:**
-- `img_base64` (string): Imagen codificada en Base64.
+- `image` (string): Imagen codificada en Base64.
 
 **Ejemplo:**
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"img_base64": "base64_string"}' http://localhost:8000/predict
+curl -X POST -H "Content-Type: application/json" -d '{"image": "base64_string"}' http://localhost:8000/predict
 ```
 
 **Response:**
