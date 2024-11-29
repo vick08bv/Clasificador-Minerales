@@ -40,7 +40,9 @@ imágenes y el costo computacional de los entrenamientos.
 ## Fuentes de información y procedimientos aplicados
 El conjunto de datos obtenidos del [repositorio](https://github.com/loliverhennigh/MinDat-Mineral-Image-Dataset.git) de Oliver Hennigh pertenecen a diferentes clasificaciones de minerales. Este repositorio alberga un archivo .csv, el cual guarda información sobre la imagen y su clasificación.
 Así esta información se ocupo después para comparar las predicciones con los datos reales.
-![Imagen de un cuarzo extraida de sitio MinDat](imagenes/modelo1.jpg)
+
+![Imagen de un cuarzo extraida de sitio MinDat](imagenes/Quarz_prueba1.jpg)
+
 Los tres modelos presentados tienen una arquitectura similar, sin embargo hemos resaltado los puntos más importantes que los diferencian entre si.
 
 # Modelo 1
@@ -57,11 +59,10 @@ En general este modelo podría obtener mejores resultados en tareas complejas, p
 
 ![Tabla 1](imagenes/modelo1.jpg)
 
-#### **Totales**
-
-Total params: 1,739,594 (6.64 MB)
-Trainable params: 1,736,842 (6.63 MB)
-Non-trainable params: 2,752 (10.75 KB)
+**Totales**
+- Total params: 1,739,594 (6.64 MB)
+- Trainable params: 1,736,842 (6.63 MB)
+- Non-trainable params: 2,752 (10.75 KB)
 
 ### Funcionamiento del Modelo 1
 1. Las imágenes se pasan a través de cinco capas convolucionales para extraer características espaciales.
