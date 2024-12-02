@@ -64,6 +64,8 @@ La red que construiremos se basa en una arquitectura de **red neuronal convoluci
 2. Las capas de MaxPooling reducen las dimensiones de las características.
 3. Las dos capas densas realizan la clasificación basada en las características extraídas.
 4. Capa de salida. Una sola neurona con una función de activación produce una probabilidad entre 0 y 1, desplegando la probabilidad más alta de que la imagen pertenezca a alguna de la categorias.
+A continuación podemos visualizar como se ve nuestro modelo:
+![graficas](imagenes/visualizacion.jpg)
 
 ## Resultados del Modelo 
 
@@ -76,11 +78,6 @@ La red que construiremos se basa en una arquitectura de **red neuronal convoluci
 ### Pérdida (Loss):
 - Entrenamiento: La pérdida disminuye consistentemente y se estabiliza en valores bajos (~0.5), lo que refleja que el modelo está aprendiendo adecuadamente.
 - Validación: La pérdida de validación es baja.
-
-## Pruebas sobre el modelo
-Después de elegir el modelo final, se hace el ajuste de hiperparámetros de 
-regularización en las últimas dos capas de convolución y dropout sólo en la 
-capa densa, para evitar el sobreajuste de la red.
 
 ## Conclusiones
 
@@ -107,6 +104,9 @@ La red que construiremos se basa en una arquitectura de **red neuronal convoluci
 3. Una capa densa que realiza la clasificación basada en las características extraídas.
 4. Capa de salida. Una sola neurona con una función de activación produce una probabilidad entre 0 y 1, desplegando la probabilidad más alta de que la imagen pertenezca a alguna de la categorias.
 
+A continuación podemos visualizar como se ve nuestro modelo:
+![graficas](imagenes/visualizacion2.jpg)
+
 ## Resultados del Modelo 
 
 ![graficas](imagenes/graficas.jpg)
@@ -118,11 +118,6 @@ La red que construiremos se basa en una arquitectura de **red neuronal convoluci
 ### Pérdida (Loss):
 - Entrenamiento: La pérdida disminuye consistentemente y se estabiliza en valores bajos (~0.5), lo que refleja que el modelo está aprendiendo adecuadamente.
 - Validación: La pérdida de validación es baja.
-
-## Pruebas sobre el modelo
-Después de elegir el modelo final, se hace el ajuste de hiperparámetros de 
-regularización en las últimas dos capas de convolución y dropout sólo en la 
-capa densa, para evitar el sobreajuste de la red.
 
 ## Conclusiones
 
@@ -147,6 +142,9 @@ La red que construiremos se basa en una arquitectura de **red neuronal convoluci
 2. Las capas de MaxPooling reducen las dimensiones de las características.
 3. Una capa densa que realiza la clasificación basada en las características extraídas.
 4. Capa de salida. Una sola neurona con una función de activación produce una probabilidad entre 0 y 1, desplegando la probabilidad más alta de que la imagen pertenezca a alguna de la categorias.
+
+A continuación podemos visualizar como se ve nuestro modelo:
+![graficas](imagenes/visualizacion3.jpg)
 
 ## Resultados del Modelo 
 
