@@ -79,11 +79,6 @@ A continuación podemos visualizar como se ve nuestro modelo:
 - Entrenamiento: La pérdida disminuye consistentemente y se estabiliza en valores bajos (~0.5), lo que refleja que el modelo está aprendiendo adecuadamente.
 - Validación: La pérdida de validación es baja.
 
-## Pruebas sobre el modelo
-Después de elegir el modelo final, se hace el ajuste de hiperparámetros de 
-regularización en las últimas dos capas de convolución y dropout sólo en la 
-capa densa, para evitar el sobreajuste de la red.
-
 ## Conclusiones
 
 En general este modelo podría obtuvo buenos resultados en tareas complejas, pero requiere de un ajuste cuidadoso de los hiperparámetros para evitar el sobreajuste.
@@ -123,11 +118,6 @@ A continuación podemos visualizar como se ve nuestro modelo:
 ### Pérdida (Loss):
 - Entrenamiento: La pérdida disminuye consistentemente y se estabiliza en valores bajos (~0.5), lo que refleja que el modelo está aprendiendo adecuadamente.
 - Validación: La pérdida de validación es baja.
-
-## Pruebas sobre el modelo
-Después de elegir el modelo final, se hace el ajuste de hiperparámetros de 
-regularización en las últimas dos capas de convolución y dropout sólo en la 
-capa densa, para evitar el sobreajuste de la red.
 
 ## Conclusiones
 
