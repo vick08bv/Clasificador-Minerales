@@ -81,7 +81,7 @@ A continuación podemos visualizar como se ve nuestro modelo:
 
 ## Pruebas sobre el modelo
 Podemos observar algunos resultados del entrenamiento.
-![imagen](imagenes/entrenamiento1)
+![entrenamiento](imagenes/entrenamiento1.jpg)
 
 ## Conclusiones
 
@@ -124,7 +124,7 @@ A continuación podemos visualizar como se ve nuestro modelo:
 - Validación: La pérdida de validación es baja.
 
 Podemos observar algunos resultados del entrenamiento.
-![imagen](imagenes/entrenamiento2)
+![imagen](imagenes/entrenamiento2.jpg)
 
 ## Conclusiones
 
@@ -171,7 +171,7 @@ regularización en las últimas dos capas de convolución y dropout sólo en la
 capa densa, para evitar el sobreajuste de la red.
 
 Podemos observar algunos resultados del entrenamiento.
-![imagen](imagenes/entrenamiento3)
+![imagen](imagenes/entrenamiento3.jpg)
 
 ## Conclusiones
 
